@@ -1,0 +1,21 @@
+<section>
+    <mat-form-field>
+        <input matInput [matDatepicker]="startDate" placeholder="Choose Training date" name="startDate" [(ngModel)]="searchData.startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Choose start time" name="startTime" [(ngModel)]="searchData.startTime">
+            <mat-option *ngFor="let time of times" [value]="time.value">
+                {{time.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Choose end time" name="endTime" [(ngModel)]="searchData.endTime">
+            <mat-option *ngFor="let time of times" [value]="time.value">
+                {{time.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>

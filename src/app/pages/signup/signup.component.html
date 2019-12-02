@@ -1,0 +1,82 @@
+<!-- https://angular.cn/guide/form-validation -->
+<form class="form-container" role="form" (submit)="signup()" novalidate name="myForm">
+    <mat-card>
+        <mat-card-content>
+            <p class="h4">Create Account</p>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="text" required id="userName" name="userName" [formControl]="userName" [(ngModel)]="user.userName" matInput
+                    placeholder="User name/ User ID/ Email">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-error *ngIf="userName.invalid">User name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="text" required id="firstName" name="firstName" [formControl]="firstName" [(ngModel)]="user.firstName" matInput
+                    placeholder="First name">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-error *ngIf="firstName.invalid">First name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="text" required id="lastName" name="lastName" [formControl]="lastName" [(ngModel)]="user.lastName" matInput
+                    placeholder="Last name">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-error *ngIf="lastName.invalid">Last name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="text" id="contactNumber" name="contactNumber" [(ngModel)]="user.contactNumber" matInput
+                    placeholder="Contact number">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="url" id="linedinUrl" name="linedinUrl" [(ngModel)]="user.linedinUrl" matInput
+                    placeholder="linedin Url">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Last name -->
+                <input type="number" id="yearsOfExperience" name="yearsOfExperience"
+                    [(ngModel)]="user.yearsOfExperience" matInput placeholder="Years Of Experience">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Password -->
+                <input type="password" required id="password" name="password" [formControl]="password" [(ngModel)]="user.password" matInput
+                    placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted">
+                    At least 8 characters and 1 digit
+                </small>
+                <mat-error *ngIf="password.invalid">Password is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-full-width">
+                <!-- Password -->
+                <input type="password" required id="repassword" name="repassword" [formControl]="repassword" [(ngModel)]="user.repassword" matInput placeholder="Confirm Password"
+                    aria-describedby="repasswordValidation">
+                <small id="repasswordValidation" class="form-text text-muted">
+                    Please confirm re enter same password.
+                </small>
+                <mat-error *ngIf="repassword.invalid">Confirm Password is required and confirm re enter same password.</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field class="form-full-width">
+                <mat-select placeholder="Choose a Role" id="role" name="role" [(ngModel)]="user.role">
+                    <mat-option *ngFor="let role of roles" [value]="role.value">
+                        {{role.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <p>
+                <!-- Sign up button -->
+                <button mat-raised-button color="primary" type="submit">Sign Up Now</button>
+            </p>
+            <hr>
+            <!-- Terms of service -->
+            <p>By clicking
+                <em>Sign up</em> you agree to our
+                <a href="" target="_blank">terms of service</a></p>
+        </mat-card-content>
+    </mat-card>
+</form>

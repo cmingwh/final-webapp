@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="header">
+    <span style="color: grey; font-size: 12px; font-weight: bold;" [hidden]="!authenticated()">
+        Welcome {{userName}}
+    </span>
+    <button mat-menu-item>Notifications</button>
+    <button [hidden]="!authenticated()" mat-menu-item (click)="logout()">Logout</button>
+    <button [hidden]="authenticated()" mat-menu-item (click)="login()">login</button>
+    <button [hidden]="authenticated()" mat-menu-item (click)="signup()">signup</button>
+</mat-toolbar>
+<hr>

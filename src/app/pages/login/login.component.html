@@ -1,0 +1,46 @@
+<form class="form-container" role="form" (submit)="login()">
+    <mat-card>
+        <mat-card-content>
+            <p class="h4">Sign in</p>
+            <section>
+                <!-- userName -->
+                <mat-form-field class="form-full-width">
+                    <input matInput type="email" id="userName" name="userName" class="form-control" placeholder="E-mail" [(ngModel)]="credentials.userName">
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="form-full-width">
+                    <!-- Password -->
+                    <input matInput type="password" id="password" name="password" class="form-control" placeholder="Password"[(ngModel)]="credentials.password">
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+            </section>
+            <!-- <mat-form-field class="form-full-width">
+            <mat-checkbox
+            [(ngModel)]="checked"
+            [(indeterminate)]="indeterminate"
+            [labelPosition]="labelPosition"
+            [disabled]="disabled">
+            Remember me
+            </mat-checkbox>
+        </mat-form-field> -->
+
+            <!-- Forgot password -->
+            <section>
+                <a href="">Forgot password?</a>
+            </section>
+            <!-- Sign in button -->
+            <section>
+                <p class="form-button-row">
+                    <button mat-raised-button color="primary" type="submit">Sign in</button>
+                </p>
+            </section>
+            <section>
+                <!-- Register -->
+                <p>Not a member?</p>
+                <p><a href="/signup">Sign Up</a></p>
+            </section>
+        </mat-card-content>
+    </mat-card>
+</form>

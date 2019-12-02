@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Withdraw a Training</h1>
+<div mat-dialog-content>
+    <p>Are you sure you want to withdraw below training?</p>
+    <div class="dialog-container">
+        <mat-list role="list">
+            <mat-list-item role="listitem">Technology: {{data.tech}}</mat-list-item>
+            <mat-list-item role="listitem">{{data.time}}</mat-list-item>
+            <mat-list-item role="listitem">Progress: {{data.progress*100}}%</mat-list-item>
+            <mat-list-item role="listitem">Trainee: {{data.traineeId}}</mat-list-item>
+        </mat-list>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.traineeId" cdkFocusInitial>Withdraw Now</button>
+</div>

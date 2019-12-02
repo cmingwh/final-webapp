@@ -1,0 +1,15 @@
+.dialog-container{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea.mat-input-element{
+    height: 120px;
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 400px;
+    width: 100%;
+}

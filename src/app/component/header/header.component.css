@@ -1,0 +1,8 @@
+.header{
+    height: 30px;
+    background-color: aliceblue;
+    justify-content: flex-end;
+}
+.header button{
+    margin: 10px;
+}

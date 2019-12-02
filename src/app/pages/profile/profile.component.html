@@ -1,0 +1,28 @@
+<app-header></app-header>
+<form class="form-container">
+    <mat-card>
+        <mat-card-content class="flex-content">
+            <p class="h4">Base Information</p>
+            <p>
+                Email: {{user.username}}
+            </p>
+            <section>
+                <mat-form-field class="form-full-width">
+                    <input matInput type="text" id="firstName" class="form-control" placeholder="First Name" value={{user.firstName}}>
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="form-full-width">
+                    <input matInput type="text" id="LastName" class="form-control" placeholder="Last Name" value={{user.lastName}}>
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+            </section>
+            <section>
+                <p class="form-button-row">
+                    <button mat-raised-button color="primary" type="submit">Save</button>
+                </p>
+            </section>
+        </mat-card-content>
+    </mat-card>
+</form>

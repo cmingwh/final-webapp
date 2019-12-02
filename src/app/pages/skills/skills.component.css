@@ -1,0 +1,11 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 400px;
+    width: 100%;
+}
+.form-full-width{
+    display: block;
+    width: 100%;
+}
