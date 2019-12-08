@@ -1,0 +1,33 @@
+<form class="form-container">
+    <h1 mat-dialog-title>Create/Update Company</h1>
+    <div mat-dialog-content>
+        <div class="dialog-container">
+            <mat-form-field>
+                <input matInput placeholder="Company Code" name="companyCode"
+                    [(ngModel)]="company.companyCode">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Company Name" name="companyName"
+                    [(ngModel)]="company.companyName">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="CEO Name & Board Members" name="ceo"
+                    [(ngModel)]="company.ceo"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Directors" name="ceo" [(ngModel)]="company.directors"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Turn Over" name="turnover" [(ngModel)]="company.turnover">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Brief Description" name="introduction"
+                    [(ngModel)]="company.introduction"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial (click)="saveCompany()">Submit</button>
+    </div>
+</form>

@@ -1,18 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatTable } from '@angular/material';
-import { ProposeComponent } from '../propose/propose.component';
+import { EditCompanyComponent } from '../edit-company/edit-company.component';
 import { MentorSkillsComponent } from '../../component/mentor-skills/mentor-skills.component';
 import { CalendarComponent } from '../../component/calendar/calendar.component';
 import { AppService } from '../../service/app.service';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-training-search',
-  templateUrl: './training-search.component.html',
-  styleUrls: ['./training-search.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 
-export class TrainingSearchComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
   @ViewChild('selSkills', { static: false }) selSkills: MentorSkillsComponent;
   @ViewChild('selCalendar', { static: false }) selCalendar: CalendarComponent;
@@ -27,7 +27,7 @@ export class TrainingSearchComponent implements OnInit {
   }
 
   openDialog(element): void {
-    const dialogRef = this.dialog.open(ProposeComponent, {
+    const dialogRef = this.dialog.open(EditCompanyComponent, {
       width: '450px',
       data: element
     });
@@ -48,21 +48,21 @@ export class TrainingSearchComponent implements OnInit {
         endTime: this.selCalendar.searchData.endTime,
         status: 'new'
       };
-      this.app.searchCalendar(calendar).subscribe(
-        res => {
-          if (res) {
-            if (res.error || res.message) {
-              console.log(res);
-            } else {
-              this.calendars = res;
-              this.calendarTable.renderRows();
-            }
-          }
-        },
-        error => {
-          console.log('error:', error);
-        }
-      );
+      // this.app.searchCalendar(calendar).subscribe(
+      //   res => {
+      //     if (res) {
+      //       if (res.error || res.message) {
+      //         console.log(res);
+      //       } else {
+      //         this.calendars = res;
+      //         this.calendarTable.renderRows();
+      //       }
+      //     }
+      //   },
+      //   error => {
+      //     console.log('error:', error);
+      //   }
+      // );
     }
   }
 }

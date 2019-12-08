@@ -13,20 +13,20 @@ export class MentorSkillsComponent implements OnInit {
   constructor(private app: AppService) { }
 
   ngOnInit() {
-    this.app.getAllSkills().subscribe(
-      res => {
-        if (res) {
-          if (res.error || res.message) {
-            console.log(res);
-          } else {
-            this.techs = res;
-          }
-        }
-      },
-      error => {
-        console.log('error:', error);
-      }
-    );
+    // this.app.getAllSkills().subscribe(
+    //   res => {
+    //     if (res) {
+    //       if (res.error || res.message) {
+    //         console.log(res);
+    //       } else {
+    //         this.techs = res;
+    //       }
+    //     }
+    //   },
+    //   error => {
+    //     console.log('error:', error);
+    //   }
+    // );
   }
 
 }

@@ -42,23 +42,23 @@ export class MentorCalendarComponent implements OnInit {
 
   save() {
     if (this.newTime.startDate && this.newTime.startTime && this.newTime.endTime && this.newTime.userName) {
-      this.app.saveMentorCalendar(this.newTime).subscribe(
-        res => {
-          if (res) {
-            if (res.error || res.message) {
-              console.log(res);
-            } else {
-              this.calendars.push(res);
-              this.table.renderRows();
-              this.newTime = {startDate: null, startTime: null, endTime: null, userName: this.userName};
-              console.log('success');
-            }
-          }
-        },
-        error => {
-          console.log('error:', error);
-        }
-      );
+      // this.app.saveMentorCalendar(this.newTime).subscribe(
+      //   res => {
+      //     if (res) {
+      //       if (res.error || res.message) {
+      //         console.log(res);
+      //       } else {
+      //         this.calendars.push(res);
+      //         this.table.renderRows();
+      //         this.newTime = {startDate: null, startTime: null, endTime: null, userName: this.userName};
+      //         console.log('success');
+      //       }
+      //     }
+      //   },
+      //   error => {
+      //     console.log('error:', error);
+      //   }
+      // );
     }
   }
 

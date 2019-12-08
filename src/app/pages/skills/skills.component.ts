@@ -21,20 +21,20 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     this.timezones = this.app.getTimezone();
     this.times = this.app.getTimes();
-    this.app.getAllSkills().subscribe(
-      res => {
-        if (res) {
-          if (res.error || res.message) {
-            console.log(res);
-          } else {
-            this.techs = res;
-          }
-        }
-      },
-      error => {
-        console.log('error:', error);
-      }
-    );
+    // this.app.getAllSkills().subscribe(
+    //   res => {
+    //     if (res) {
+    //       if (res.error || res.message) {
+    //         console.log(res);
+    //       } else {
+    //         this.techs = res;
+    //       }
+    //     }
+    //   },
+    //   error => {
+    //     console.log('error:', error);
+    //   }
+    // );
 
     const userInfoStr = localStorage.getItem('userInfo');
     if (userInfoStr) {
@@ -56,21 +56,21 @@ export class SkillsComponent implements OnInit {
       delete this.mentor.skills;
       this.mentor.skills = skills;
     }
-    this.app.saveMentor(this.mentor).subscribe(
-      res => {
-        if (res) {
-          if (res.error || res.message) {
-            console.log(res);
-          } else {
-            localStorage.setItem('userInfo', JSON.stringify(this.mentor));
-            console.log('success');
-          }
-        }
-      },
-      error => {
-        console.log('error:', error);
-      }
-    );
+    // this.app.saveMentor(this.mentor).subscribe(
+    //   res => {
+    //     if (res) {
+    //       if (res.error || res.message) {
+    //         console.log(res);
+    //       } else {
+    //         localStorage.setItem('userInfo', JSON.stringify(this.mentor));
+    //         console.log('success');
+    //       }
+    //     }
+    //   },
+    //   error => {
+    //     console.log('error:', error);
+    //   }
+    // );
   }
 
 }

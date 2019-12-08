@@ -1,5 +1,5 @@
 Docker step:
-docker build -t fullstack-webapp:dev .
-docker run -v ${PWD}:/app -v /app/node_modules -p 4201:4200 --rm fullstack-webapp:dev
+docker build -t final-webapp:dev .
+docker run -v ${PWD}:/app -v /app/node_modules -p 4201:4200 --rm final-webapp:dev
 
 Open your browser to http://localhost:4201 and you should see the app.

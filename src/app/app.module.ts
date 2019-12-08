@@ -12,12 +12,11 @@ import {
   MatPaginatorModule, MatDialogModule, MatTabsModule, MatListModule, MatIconModule
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { TrainingSearchComponent } from './pages/training-search/training-search.component';
 import { MentorTrainingsComponent } from './pages/mentor-trainings/mentor-trainings.component';
 import { MentorCalendarComponent } from './pages/mentor-calendar/mentor-calendar.component';
-import { UserTrainingsComponent } from './pages/user-trainings/user-trainings.component';
+import { UserPagesComponent } from './pages/user-pages/user-pages.component';
 import { HeaderComponent } from './component/header/header.component';
-import { ProposeComponent } from './pages/propose/propose.component';
+import { EditCompanyComponent } from './pages/edit-company/edit-company.component';
 import { WithdrawComponent } from './pages/withdraw/withdraw.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SkillsComponent } from './pages/skills/skills.component';
@@ -29,6 +28,16 @@ import { AuthService } from './service/auth.service';
 import { AuthGuard } from './service/auth.guard';
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { MentorSkillsComponent } from './component/mentor-skills/mentor-skills.component';
+import { DataImportComponent } from './pages/data-import/data-import.component';
+import { CompaniesComponent } from './pages/companies/companies.component';
+import { ExchangesComponent } from './pages/exchanges/exchanges.component';
+import { IposComponent } from './pages/ipos/ipos.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import { ViewCompanyComponent } from './pages/view-company/view-company.component';
+import { EditExchangeComponent } from './pages/edit-exchange/edit-exchange.component';
+import { ViewExchangeComponent } from './pages/view-exchange/view-exchange.component';
+import { ViewIpoComponent } from './pages/view-ipo/view-ipo.component';
+import { EditIpoComponent } from './pages/edit-ipo/edit-ipo.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -60,11 +69,11 @@ export class XhrInterceptor implements HttpInterceptor {
     AppComponent,
     LoginComponent,
     SignupComponent,
-    TrainingSearchComponent,
     MentorTrainingsComponent,
-    UserTrainingsComponent,
+    UserPagesComponent,
     HeaderComponent,
-    ProposeComponent,
+    EditCompanyComponent,
+    ViewCompanyComponent,
     WithdrawComponent,
     ProfileComponent,
     SkillsComponent,
@@ -73,6 +82,14 @@ export class XhrInterceptor implements HttpInterceptor {
     MentorCalendarComponent,
     MentorSkillsComponent,
     CalendarComponent,
+    DataImportComponent,
+    CompaniesComponent,
+    ExchangesComponent,
+    IposComponent,
+    EditExchangeComponent,
+    ViewExchangeComponent,
+    ViewIpoComponent,
+    EditIpoComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,11 +113,17 @@ export class XhrInterceptor implements HttpInterceptor {
     MatTabsModule,
     MatListModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
   entryComponents: [
-    ProposeComponent,
-    WithdrawComponent
+    EditCompanyComponent,
+    WithdrawComponent,
+    ViewCompanyComponent,
+    EditExchangeComponent,
+    ViewExchangeComponent,
+    ViewIpoComponent,
+    EditIpoComponent,
   ],
   exports: [
     MatButtonModule,

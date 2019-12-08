@@ -1,0 +1,40 @@
+<mat-card>
+        <mat-card-content>
+            <p>List of IPO</p>
+            <table mat-table [dataSource]="ipos" #ipoTable class="mat-elevation-z8">
+                <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+                <ng-container matColumnDef="companyCode">
+                    <th mat-header-cell *matHeaderCellDef> Company Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.companyCode}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="stockExchange">
+                    <th mat-header-cell *matHeaderCellDef> Stock Exchange </th>
+                    <td mat-cell *matCellDef="let element"> {{element.stockExchange}}% </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="openDate">
+                    <th mat-header-cell *matHeaderCellDef> Open Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.openDate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <a mat-raised-button (click)="view(element)">View</a> | 
+                        <a mat-raised-button [hidden]="!isAdmin" (click)="edit(element)">Edit</a> </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+        </mat-card-content>
+    </mat-card>

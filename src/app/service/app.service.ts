@@ -133,8 +133,8 @@ export class AppService {
     );
   }
 
-  saveMentorCalendar(calendar): Observable<any> {
-    return this.http.post(`/training/calendars/save`, calendar).pipe(
+  saveCompany(company): Observable<any> {
+    return this.http.post(`/resource/company/`, company).pipe(
       map(res => {
         return res;
       }),
@@ -177,30 +177,6 @@ export class AppService {
     );
   }
 
-  saveMentor(user): Observable<any> {
-    const accessToken = localStorage.getItem('access_token');
-    const vheaders = new HttpHeaders(accessToken ? { Authorization: 'Basic ' + accessToken } : {});
-    return this.http.post('/user/info/saveMentor', user, { headers: vheaders }).pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
-
-  getAllSkills(): Observable<any> {
-    return this.http.get('/resource/skill/findAll').pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
-
   getMyInfo(): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
     const vheaders = new HttpHeaders(accessToken ? { Authorization: 'Basic ' + accessToken } : {});
@@ -216,47 +192,4 @@ export class AppService {
     );
   }
 
-  searchCalendar(calendar): Observable<any> {
-    return this.http.post('/training/calendars/search', calendar).pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
-
-  sendPropose(propose): Observable<any> {
-    return this.http.post('/training/train/propose', propose).pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
-
-  getCurrentTraining(userName): Observable<any> {
-    return this.http.get('/training/train/current/' + userName).pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
-
-  getClosedTraining(userName): Observable<any> {
-    return this.http.get('/training/train/closed/' + userName).pipe(
-      map(res => {
-        return res;
-      }),
-      catchError((error: any) => {
-        return of(error);
-      })
-    );
-  }
 }

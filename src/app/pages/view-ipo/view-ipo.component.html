@@ -1,0 +1,30 @@
+<form class="form-container">
+        <h1 mat-dialog-title>Create/Update IPO</h1>
+        <div mat-dialog-content>
+            <div class="dialog-container">
+                <p>
+                    <span>Company Code: </span>
+                    <span>{{ipo.companyCode}}</span>
+                </p>
+                <p>
+                    <span>Stock Exchange: </span>
+                    <span>{{ipo.stockExchange}}</span>
+                </p>
+                <p>
+                    <span>Price: </span>
+                    <span>{{ipo.price}}</span>
+                </p>
+                <p>
+                    <span>Open Date: </span>
+                    <span>{{ipo.openDate}}</span>
+                </p>
+                <p>
+                    <span>Remark: </span>
+                    <span>{{ipo.remark}}</span>
+                </p>
+            </div>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Close</button>
+        </div>
+    </form>

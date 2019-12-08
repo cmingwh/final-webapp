@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrainingSearchComponent } from './training-search.component';
+import { ViewExchangeComponent } from './view-exchange.component';
 
-describe('TrainingSearchComponent', () => {
-  let component: TrainingSearchComponent;
-  let fixture: ComponentFixture<TrainingSearchComponent>;
+describe('ViewExchangeComponent', () => {
+  let component: ViewExchangeComponent;
+  let fixture: ComponentFixture<ViewExchangeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrainingSearchComponent ]
+      declarations: [ ViewExchangeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrainingSearchComponent);
+    fixture = TestBed.createComponent(ViewExchangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

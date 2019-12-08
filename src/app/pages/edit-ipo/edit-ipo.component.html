@@ -1,0 +1,29 @@
+<form class="form-container">
+        <h1 mat-dialog-title>Create/Update Ipo</h1>
+        <div mat-dialog-content>
+            <div class="dialog-container">
+                <mat-form-field>
+                    <input matInput placeholder="Company Code" name="companyCode"
+                        style="width:100%;" [(ngModel)]="ipo.companyCode">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Stock Exchange" name="stockExchange"
+                        [(ngModel)]="ipo.stockExchange">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Price" name="price" [(ngModel)]="ipo.price">
+                </mat-form-field>
+                <mat-form-field>
+                        <input matInput placeholder="Open Date" name="openDate" [(ngModel)]="ipo.openDate">
+                    </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput placeholder="Remark" name="remark"
+                        [(ngModel)]="ipo.remark"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial (click)="saveIpo()">Submit</button>
+        </div>
+    </form>

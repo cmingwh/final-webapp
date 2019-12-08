@@ -1,0 +1,58 @@
+<!-- 
+<form class="form-container" role="form" (submit)="import()">
+    <mat-card>
+        <mat-card-content>
+            
+            <section>
+                <mat-form-field class="form-full-width">
+                    <input matInput type="file" id="file" name="file" class="form-control" [(ngModel)]="file">
+                </mat-form-field>
+            </section>
+            <section>
+                <div class="form-button-row">
+                    <button mat-raised-button color="primary" type="submit">Upload</button>
+                </div>
+            </section>
+            <section>
+                
+            </section>
+        </mat-card-content>
+    </mat-card>
+</form> -->
+<div [hidden]="result.companyName">
+    <p class="h4">Import Excel</p>
+    <p>Select Excel file to be updated</p>
+    <div>
+        <input #fileInput type="file" ng2FileSelect [uploader]="uploader" />
+
+        <div class="drop-box" ng2FileDrop [ngClass]="{'dragover': isDropOver}" [uploader]="uploader"
+            (fileOver)="fileOverAnother($event)" (click)="fileClicked()">
+            <span class="drag-in-title">Import or drag file here</span>
+            <span class="drag-over-title">Drop the file</span>
+        </div>
+        <p><a
+                href="https://github.com/vskreddy652/Genc_BatchB/blob/master/StockExchange_CaseStudy/sample_stock_data.xlsx">Click
+                Here to download Example Excel file</a></p>
+    </div>
+</div>
+
+<div [hidden]="!result.companyName">
+    <p class="h4">Import Excel</p>
+    <div>
+        <p>
+            <span class="left">Company Name:</span>
+            <span class="right">{{result.companyName}}</span>
+        </p>
+        <p>
+            <span class="left">Stock Exchange:</span>
+            <span class="right">{{result.stockExchange}}</span>
+        </p>
+        <p>
+            <span class="left">No. of Records:</span>
+            <span class="right">{{result.total}} imported</span>
+        </p>
+        <p>
+            <button mat-raised-button color="primary" type="button" (click)="return()">return</button>
+        </p>
+    </div>
+</div>
