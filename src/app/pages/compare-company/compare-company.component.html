@@ -1,0 +1,27 @@
+<form class="form-container">
+    <h1 mat-dialog-title>Compare Company</h1>
+    <mat-form-field>
+        <mat-select placeholder="Select Company" name="companyCode" [(ngModel)]="company.companyCode">
+            <mat-option value="BSE">Company 1</mat-option>
+            <mat-option value="CSE">Company 2</mat-option>
+            <mat-option value="DSE">Company3</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Select Sector" name="sector" [(ngModel)]="company.sector">
+            <mat-option value="BSE">sector1</mat-option>
+            <mat-option value="CSE">sector2</mat-option>
+            <mat-option value="DSE">sector3</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Select Stock Exchange" name="stockExchange" [(ngModel)]="company.stockExchange">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Company Name" name="companyName" [(ngModel)]="company.companyName">
+    </mat-form-field>
+    <app-calendar #selCalendar></app-calendar>
+    <p>
+        <button mat-raised-button color="primary" type="button" (click)="generateMap()">Generate Map</button>
+    </p>
+</form>

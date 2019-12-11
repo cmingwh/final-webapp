@@ -9,7 +9,7 @@ import { AppService } from '../../service/app.service';
 export class CalendarComponent implements OnInit {
 
   times = [];
-  searchData = {startDate: '', startTime: '', endTime: ''};
+  searchData = {from: '', to: ''};
 
   constructor(private app: AppService) {
     this.times = this.app.getTimes();

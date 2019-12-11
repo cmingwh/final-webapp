@@ -1,4 +1,4 @@
-import { BrowserModule, } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injectable, } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import {
   MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatToolbarModule,
   MatSelectModule, MatOptionModule, MatDatepickerModule, MatNativeDateModule, MatTableModule,
-  MatPaginatorModule, MatDialogModule, MatTabsModule, MatListModule, MatIconModule
+  MatPaginatorModule, MatDialogModule, MatTabsModule, MatListModule, MatIconModule, MAT_LABEL_GLOBAL_OPTIONS
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MentorTrainingsComponent } from './pages/mentor-trainings/mentor-trainings.component';
@@ -20,8 +20,7 @@ import { EditCompanyComponent } from './pages/edit-company/edit-company.componen
 import { WithdrawComponent } from './pages/withdraw/withdraw.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SkillsComponent } from './pages/skills/skills.component';
-import { AdminUserComponent } from './pages/admin-user/admin-user.component';
-import { AdminTechFeeComponent } from './pages/admin-tech-fee/admin-tech-fee.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHeaders, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppService } from './service/app.service';
 import { AuthService } from './service/auth.service';
@@ -38,6 +37,21 @@ import { EditExchangeComponent } from './pages/edit-exchange/edit-exchange.compo
 import { ViewExchangeComponent } from './pages/view-exchange/view-exchange.component';
 import { ViewIpoComponent } from './pages/view-ipo/view-ipo.component';
 import { EditIpoComponent } from './pages/edit-ipo/edit-ipo.component';
+import { CompareCompanyComponent } from './pages/compare-company/compare-company.component';
+import { CompareSectorComponent } from './pages/compare-sector/compare-sector.component';
+import { CompaniesChartComponent } from './pages/companies-chart/companies-chart.component';
+import { SectorsChartComponent } from './pages/sectors-chart/sectors-chart.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
+
+// Load FusionCharts
+import * as FusionCharts from 'fusioncharts';
+// Load Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+// // Load fusion theme
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+// Add dependencies to FusionChartsModule
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -77,8 +91,7 @@ export class XhrInterceptor implements HttpInterceptor {
     WithdrawComponent,
     ProfileComponent,
     SkillsComponent,
-    AdminUserComponent,
-    AdminTechFeeComponent,
+    AdminComponent,
     MentorCalendarComponent,
     MentorSkillsComponent,
     CalendarComponent,
@@ -90,6 +103,10 @@ export class XhrInterceptor implements HttpInterceptor {
     ViewExchangeComponent,
     ViewIpoComponent,
     EditIpoComponent,
+    CompareCompanyComponent,
+    CompareSectorComponent,
+    CompaniesChartComponent,
+    SectorsChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,7 +131,8 @@ export class XhrInterceptor implements HttpInterceptor {
     MatListModule,
     MatIconModule,
     HttpClientModule,
-    FileUploadModule
+    FileUploadModule,
+    FusionChartsModule
   ],
   entryComponents: [
     EditCompanyComponent,
@@ -124,6 +142,7 @@ export class XhrInterceptor implements HttpInterceptor {
     ViewExchangeComponent,
     ViewIpoComponent,
     EditIpoComponent,
+    CompaniesChartComponent,
   ],
   exports: [
     MatButtonModule,
@@ -131,7 +150,9 @@ export class XhrInterceptor implements HttpInterceptor {
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }, AuthService, AuthGuard],
+  providers: [AppService, AuthService, AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true },
+    {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -30,6 +30,6 @@ export class ViewIpoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ipo = { ipoCode: '', ipoName: '', ceo: '', directors: '', turnover: '', introduction: '' };
+    this.ipo = { companyCode: '', stockExchange: '', price: '', openDate: '', remark: '' };
   }
 }

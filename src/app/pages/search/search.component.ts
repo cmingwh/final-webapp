@@ -38,16 +38,16 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    if (this.selSkills.selectedSkill && this.selCalendar.searchData.startDate &&
-       this.selCalendar.searchData.startTime && this.selCalendar.searchData.endTime) {
-      const startDate = moment(this.selCalendar.searchData.startDate).format('YYYY-MM-DD');
-      const calendar = {
-        skillId: this.selSkills.selectedSkill,
-        startDate: startDate,
-        startTime: this.selCalendar.searchData.startTime,
-        endTime: this.selCalendar.searchData.endTime,
-        status: 'new'
-      };
+    // if (this.selSkills.selectedSkill && this.selCalendar.searchData.startDate &&
+    //    this.selCalendar.searchData.startTime && this.selCalendar.searchData.endTime) {
+    //   const startDate = moment(this.selCalendar.searchData.startDate).format('YYYY-MM-DD');
+    //   const calendar = {
+    //     skillId: this.selSkills.selectedSkill,
+    //     startDate: startDate,
+    //     startTime: this.selCalendar.searchData.startTime,
+    //     endTime: this.selCalendar.searchData.endTime,
+    //     status: 'new'
+    //   };
       // this.app.searchCalendar(calendar).subscribe(
       //   res => {
       //     if (res) {
@@ -63,6 +63,6 @@ export class SearchComponent implements OnInit {
       //     console.log('error:', error);
       //   }
       // );
-    }
+    // }
   }
 }

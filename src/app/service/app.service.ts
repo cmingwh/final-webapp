@@ -144,6 +144,17 @@ export class AppService {
     );
   }
 
+  searchCompaniesStocePrice(searchData): Observable<any> {
+    return this.http.post(`/resource/price/search`, searchData).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
   deleteCalendar(id): Observable<any> {
     return this.http.delete(`/training/calendars/${id}`).pipe(
       map(res => {

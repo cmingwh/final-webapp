@@ -12,36 +12,42 @@ import { AppService } from '../../service/app.service';
 export class CompaniesComponent implements OnInit {
   // @ViewChild('selSkills', { static: false }) selSkills: MentorSkillsComponent;
   // @ViewChild('selCalendar', { static: false }) selCalendar: CalendarComponent;
-  @ViewChild('companyTable', {static: false}) companyTable: MatTable<any>;
+  @ViewChild('companyTable', { static: false }) companyTable: MatTable<any>;
   isAdmin = false;
 
   companies = [
-    {companyName: 'IBM', turnover: 'turnover 111', ceo: 'test ceo', directors: '', action: ''},
-    {companyName: 'ADOBE', turnover: 'turnover 333', ceo: 'test ceo', directors: '', action: ''}
+    {
+      companyName: 'IBM', companyCode: '0011223', sectorName: 'Computer',
+      turnover: 'turnover 111', ceo: 'test ceo', directors: '', action: ''
+    },
+    {
+      companyName: 'ADOBE', companyCode: '0011223', sectorName: 'Computer',
+      turnover: 'turnover 333', ceo: 'test ceo', directors: '', action: ''
+    }
   ];
 
   // companies = [];
 
-  displayedColumns: string[] = ['companyName', 'turnover', 'ceo', 'directors', 'action'];
-  
+  displayedColumns: string[] = ['companyName', 'companyCode', 'sectorName', 'turnover', 'ceo', 'directors', 'action'];
+
   constructor(public dialog: MatDialog, private app: AppService) { }
 
   ngOnInit() {
     // this.app.searchCompany(company).subscribe(
-      //   res => {
-      //     if (res) {
-      //       if (res.error || res.message) {
-      //         console.log(res);
-      //       } else {
-      //         this.companies = res;
-      //         this.companyTable.renderRows();
-      //       }
-      //     }
-      //   },
-      //   error => {
-      //     console.log('error:', error);
-      //   }
-      // );
+    //   res => {
+    //     if (res) {
+    //       if (res.error || res.message) {
+    //         console.log(res);
+    //       } else {
+    //         this.companies = res;
+    //         this.companyTable.renderRows();
+    //       }
+    //     }
+    //   },
+    //   error => {
+    //     console.log('error:', error);
+    //   }
+    // );
   }
 
   edit(element): void {

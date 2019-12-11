@@ -4,7 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 // import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserPagesComponent } from './pages/user-pages/user-pages.component';
-import { AdminUserComponent } from './pages/admin-user/admin-user.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { AuthGuard } from './service/auth.guard';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   // { path: 'mentor', component: MentorTrainingsComponent, canActivate: [AuthGuard] },
   // { path: 'search', component: SearchComponent },
   // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminUserComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   // { path: 'admin/tech', component: AdminTechFeeComponent, canActivate: [AuthGuard] },
   { path: '',
     redirectTo: '/userpages',
