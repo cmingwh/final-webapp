@@ -144,6 +144,171 @@ export class AppService {
     );
   }
 
+  getCompanyByCode(companyCode): Observable<any> {
+    return this.http.get(`/resource/company/find/${companyCode}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getAllCompany(): Observable<any> {
+      return this.http.get(`/resource/company/findAll`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  deleteCompany(companyCode): Observable<any> {
+    return this.http.delete(`/resource/company/${companyCode}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  saveSector(sector): Observable<any> {
+    return this.http.post(`/resource/sector/`, sector).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getSectorById(id): Observable<any> {
+    return this.http.get(`/resource/sector/find/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getAllSector(): Observable<any> {
+      return this.http.get(`/resource/sector/findAll`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  deleteSector(id): Observable<any> {
+    return this.http.delete(`/resource/sector/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  saveIpo(ipo): Observable<any> {
+    return this.http.post(`/resource/ipo/`, ipo).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getIpoById(id): Observable<any> {
+    return this.http.get(`/resource/ipo/find/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getAllIpo(): Observable<any> {
+      return this.http.get(`/resource/ipo/findAll`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  deleteIpo(id): Observable<any> {
+    return this.http.delete(`/resource/ipo/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  saveStockExchange(stockExchange): Observable<any> {
+    return this.http.post(`/resource/stockExchange/`, stockExchange).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getStockExchangeById(id): Observable<any> {
+    return this.http.get(`/resource/stockExchange/find/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  getAllStockExchange(): Observable<any> {
+      return this.http.get(`/resource/stockExchange/findAll`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
+  deleteStockExchange(id): Observable<any> {
+    return this.http.delete(`/resource/stockExchange/${id}`).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
   searchCompaniesStocePrice(searchData): Observable<any> {
     return this.http.post(`/resource/price/search`, searchData).pipe(
       map(res => {

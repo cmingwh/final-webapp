@@ -10,14 +10,14 @@
                 <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="companyName">
+            <ng-container matColumnDef="companyCode">
                 <th mat-header-cell *matHeaderCellDef> Company Code </th>
                 <td mat-cell *matCellDef="let element"> {{element.companyCode}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="companyName">
+            <ng-container matColumnDef="sectorName">
                 <th mat-header-cell *matHeaderCellDef> Sector </th>
-                <td mat-cell *matCellDef="let element"> {{element.sectorName}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.sector.sectorName}} </td>
             </ng-container>
 
             <ng-container matColumnDef="turnover">

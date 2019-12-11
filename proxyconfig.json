@@ -8,7 +8,7 @@
   "/user": {
     "target": "http://localhost:8888"
   },
-  "/training": {
+  "/excel": {
     "target": "http://localhost:8888"
   },
   "/payment": {
