@@ -20,7 +20,7 @@ export interface CompanyElement {
 })
 
 export class ViewCompanyComponent implements OnInit {
-  company: {};
+  company: CompanyElement;
   constructor(
     public dialogRef: MatDialogRef<ViewCompanyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CompanyElement,

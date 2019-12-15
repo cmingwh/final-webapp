@@ -17,7 +17,7 @@ export interface ExchangeElement {
   styleUrls: ['./view-exchange.component.css']
 })
 export class ViewExchangeComponent implements OnInit {
-  exchange: {};
+  exchange: ExchangeElement;
   constructor(
     public dialogRef: MatDialogRef<ViewExchangeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ExchangeElement,

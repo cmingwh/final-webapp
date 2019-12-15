@@ -18,7 +18,7 @@ export interface IpoElement {
   styleUrls: ['./view-ipo.component.css']
 })
 export class ViewIpoComponent implements OnInit {
-  ipo: {};
+  ipo: IpoElement;
   constructor(
     public dialogRef: MatDialogRef<ViewIpoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IpoElement,

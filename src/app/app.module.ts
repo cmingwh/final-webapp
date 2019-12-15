@@ -12,20 +12,16 @@ import {
   MatPaginatorModule, MatDialogModule, MatTabsModule, MatListModule, MatIconModule, MAT_LABEL_GLOBAL_OPTIONS
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MentorTrainingsComponent } from './pages/mentor-trainings/mentor-trainings.component';
-import { MentorCalendarComponent } from './pages/mentor-calendar/mentor-calendar.component';
 import { HeaderComponent } from './component/header/header.component';
 import { EditCompanyComponent } from './pages/edit-company/edit-company.component';
 import { WithdrawComponent } from './pages/withdraw/withdraw.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { SkillsComponent } from './pages/skills/skills.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHeaders, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppService } from './service/app.service';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './service/auth.guard';
 import { CalendarComponent } from './component/calendar/calendar.component';
-import { MentorSkillsComponent } from './component/mentor-skills/mentor-skills.component';
 import { DataImportComponent } from './pages/data-import/data-import.component';
 import { CompaniesComponent } from './pages/companies/companies.component';
 import { ExchangesComponent } from './pages/exchanges/exchanges.component';
@@ -83,16 +79,12 @@ export class XhrInterceptor implements HttpInterceptor {
     AppComponent,
     LoginComponent,
     SignupComponent,
-    MentorTrainingsComponent,
     HeaderComponent,
     EditCompanyComponent,
     ViewCompanyComponent,
     WithdrawComponent,
     ProfileComponent,
-    SkillsComponent,
     AdminComponent,
-    MentorCalendarComponent,
-    MentorSkillsComponent,
     CalendarComponent,
     DataImportComponent,
     CompaniesComponent,
