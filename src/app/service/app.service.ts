@@ -309,6 +309,17 @@ export class AppService {
     );
   }
 
+  searchCompany(company): Observable<any> {
+    return this.http.post(`/resource/company/search`, company).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError((error: any) => {
+        return of(error);
+      })
+    );
+  }
+
   searchCompaniesStocePrice(searchData): Observable<any> {
     return this.http.post(`/resource/price/search`, searchData).pipe(
       map(res => {

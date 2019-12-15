@@ -10,57 +10,56 @@ export interface SearchElement {
   to: string;
 }
 
-const chartData = {
-  chart: {
-    caption: 'Compare Companies : Company vs Resolved',
-    yaxisname: '$ Price per Share',
-    // subcaption: 'Last  week',
-    numdivlines: '3',
-    showvalues: '0',
-    legenditemfontsize: '15',
-    legenditemfontbold: '1',
-    plottooltext: '$<b>$dataValue</b> per Share of $seriesName on $label',
-    theme: 'fusion'
-  },
-  categories: [
-    {
-      category: []
-    }
-  ],
-  dataset: []
-};
-
 @Component({
   selector: 'app-companies-chart',
   templateUrl: './companies-chart.component.html',
   styleUrls: ['./companies-chart.component.css']
 })
 export class CompaniesChartComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
   dataSource;
-  chartConfig;
+  chartConfig = {
+    width: '700',
+    height: '400',
+    type: 'msspline',
+    dataFormat: 'json',
+  };
+  chartData = {
+    chart: {
+      caption: 'Compare Companies : Company vs Resolved',
+      yaxisname: '$ Price per Share',
+      // subcaption: 'Last  week',
+      numdivlines: '3',
+      showvalues: '0',
+      legenditemfontsize: '15',
+      legenditemfontbold: '1',
+      plottooltext: '$<b>$dataValue</b> per Share of $seriesName on $label',
+      theme: 'fusion'
+    },
+    categories: [
+      {
+        category: []
+      }
+    ],
+    dataset: []
+  };
+
+  ngOnInit() {
+  }
 
   constructor(
     public dialogRef: MatDialogRef<CompaniesChartComponent>,
     @Inject(MAT_DIALOG_DATA) public searchData: SearchElement,
     private app: AppService, private auth: AuthService,
     private router: Router) {
-    this.chartConfig = {
-      width: '700',
-      height: '400',
-      type: 'msspline',
-      dataFormat: 'json',
-    };
 
     if (this.searchData.from && this.searchData.to && this.searchData.companies.length > 0) {
       this.app.searchCompaniesStocePrice(this.searchData).subscribe(
         res => {
-          if (res) {
+          if (res && res.length > 0) {
             console.log(res);
             this.dataSource = this.generateChartData(res);
+          } else {
+            alert('No data found. Please try change your conditions.');
           }
         },
         error => {
@@ -74,17 +73,18 @@ export class CompaniesChartComponent implements OnInit {
     const firstCompany = origin[0].companyCode;
     let lastCompany = origin[0].companyCode;
     let line = {seriesname: lastCompany, data: []};
+    this.chartData.dataset.push(line);
     for (const item of origin) {
       if (firstCompany === item.companyCode) {
-        chartData.categories[0].category.push(item.happenTime);
+        this.chartData.categories[0].category.push(item.happenTime);
       }
       line.data.push({value: item.price});
       if (lastCompany !== item.companyCode) {
-        chartData.dataset.push(line);
         lastCompany = item.companyCode;
         line = {seriesname: lastCompany, data: []};
+        this.chartData.dataset.push(line);
       }
     }
-    return chartData;
+    return this.chartData;
   }
 }

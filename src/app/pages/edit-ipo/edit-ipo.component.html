@@ -3,19 +3,28 @@
         <div mat-dialog-content>
             <div class="dialog-container">
                 <mat-form-field>
-                    <input matInput placeholder="Company Code" name="companyCode"
-                        style="width:100%;" [(ngModel)]="ipo.companyCode">
+                    <mat-select placeholder="Select Company" name="companyCode" [(ngModel)]="ipo.companyCode">
+                        <mat-option *ngFor="let company of companies" [value]="company.companyCode">
+                            {{company.companyCode}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Stock Exchange" name="stockExchange"
-                        [(ngModel)]="ipo.stockExchange">
+                    <mat-select placeholder="Select Stock Exchange" name="stockExchange" [(ngModel)]="ipo.stockExchange">
+                        <mat-option *ngFor="let exchange of stockExchanges" [value]="exchange.stockExchange">
+                            {{exchange.stockExchange}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput placeholder="Price" name="price" [(ngModel)]="ipo.price">
                 </mat-form-field>
                 <mat-form-field>
-                        <input matInput placeholder="Open Date" name="openDate" [(ngModel)]="ipo.openDate">
-                    </mat-form-field>
+                    <input matInput [matDatepicker]="openDate" placeholder="Open Date" name="openDate"
+                        [(ngModel)]="ipo.openDate">
+                    <mat-datepicker-toggle matSuffix [for]="openDate"></mat-datepicker-toggle>
+                    <mat-datepicker #openDate></mat-datepicker>
+                </mat-form-field>
                 <mat-form-field>
                     <textarea matInput placeholder="Remark" name="remark"
                         [(ngModel)]="ipo.remark"></textarea>

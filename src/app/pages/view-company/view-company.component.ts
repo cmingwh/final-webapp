@@ -32,7 +32,7 @@ export class ViewCompanyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.company = { companyCode: '', companyName: '', ceo: '', directors: '', turnover: '', introduction: '' };
+    this.company = this.data; //{ companyCode: '', companyName: '', ceo: '', directors: '', turnover: '', introduction: '' };
   }
 
 }

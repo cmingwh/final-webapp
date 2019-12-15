@@ -19,7 +19,7 @@
         </mat-card-content>
     </mat-card>
 </form> -->
-<div [hidden]="result.companyName">
+<div [hidden]="result.length > 0">
     <p class="h4">Import Excel</p>
     <p>Select Excel file to be updated</p>
     <div>
@@ -36,20 +36,20 @@
     </div>
 </div>
 
-<div [hidden]="!result.companyCode">
+<div [hidden]="result.length === 0">
     <p class="h4">Import Excel</p>
     <div>
         <p>
             <span class="left">Company Code:</span>
-            <span class="right">{{result.companyCode}}</span>
+            <span class="right">{{companyCode}}</span>
         </p>
         <p>
             <span class="left">Stock Exchange:</span>
-            <span class="right">{{result.stockExchange}}</span>
+            <span class="right">{{stockExchange}}</span>
         </p>
         <p>
             <span class="left">No. of Records:</span>
-            <span class="right">{{result.total}} imported</span>
+            <span class="right">{{result.length}} imported</span>
         </p>
         <p>
             <button mat-raised-button color="primary" type="button" (click)="return()">return</button>

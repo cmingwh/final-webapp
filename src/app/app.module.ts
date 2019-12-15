@@ -14,7 +14,6 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MentorTrainingsComponent } from './pages/mentor-trainings/mentor-trainings.component';
 import { MentorCalendarComponent } from './pages/mentor-calendar/mentor-calendar.component';
-import { UserPagesComponent } from './pages/user-pages/user-pages.component';
 import { HeaderComponent } from './component/header/header.component';
 import { EditCompanyComponent } from './pages/edit-company/edit-company.component';
 import { WithdrawComponent } from './pages/withdraw/withdraw.component';
@@ -49,6 +48,7 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 // // Load fusion theme
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { UserComponent } from './pages/user/user.component';
 
 // Add dependencies to FusionChartsModule
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -84,7 +84,6 @@ export class XhrInterceptor implements HttpInterceptor {
     LoginComponent,
     SignupComponent,
     MentorTrainingsComponent,
-    UserPagesComponent,
     HeaderComponent,
     EditCompanyComponent,
     ViewCompanyComponent,
@@ -107,6 +106,7 @@ export class XhrInterceptor implements HttpInterceptor {
     CompareSectorComponent,
     CompaniesChartComponent,
     SectorsChartComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

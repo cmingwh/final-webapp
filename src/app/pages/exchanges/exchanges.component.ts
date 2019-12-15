@@ -25,21 +25,21 @@ export class ExchangesComponent implements OnInit {
   constructor(public dialog: MatDialog, private app: AppService) { }
 
   ngOnInit() {
-    // this.app.searchExchange(Exchange).subscribe(
-      //   res => {
-      //     if (res) {
-      //       if (res.error || res.message) {
-      //         console.log(res);
-      //       } else {
-      //         this.Exchanges = res;
-      //         this.ExchangeTable.renderRows();
-      //       }
-      //     }
-      //   },
-      //   error => {
-      //     console.log('error:', error);
-      //   }
-      // );
+    this.app.getAllStockExchange().subscribe(
+      res => {
+        if (res) {
+          if (res.error || res.message) {
+            console.log(res);
+          } else {
+            this.exchanges = res;
+            this.exchangeTable.renderRows();
+          }
+        }
+      },
+      error => {
+        console.log('error:', error);
+      }
+    );
   }
 
   edit(element): void {
@@ -64,4 +64,8 @@ export class ExchangesComponent implements OnInit {
     });
   }
 
+  add(): void {
+    const exchange = {stockExchange: '', brief: '', contactAddress: '', action: ''};
+    this.edit(exchange);
+  }
 }

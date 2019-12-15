@@ -61,6 +61,11 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
+  add(): void {
+    const company = {companyCode: '', companyName: '', ceo: '', directors: '', turnover: '', introduction: ''};
+    this.edit(company);
+  }
+
   view(element): void {
     const dialogRef = this.dialog.open(ViewCompanyComponent, {
       width: '450px',

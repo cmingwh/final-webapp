@@ -17,7 +17,7 @@ export interface ExchangeElement {
   styleUrls: ['./edit-exchange.component.css']
 })
 export class EditExchangeComponent implements OnInit {
-  exchange = {stockExchange: '', brief: '', contactAddress: '', remark: ''};
+  exchange; // = {stockExchange: '', brief: '', contactAddress: '', remark: ''};
 
   constructor(
     public dialogRef: MatDialogRef<EditExchangeComponent>,
@@ -33,23 +33,25 @@ export class EditExchangeComponent implements OnInit {
     if (!this.auth.isLogin()) {
       this.dialogRef.close();
       this.router.navigate(['login']);
+    } else {
+      this.exchange = this.data;
     }
   }
 
   saveExchange() {
-    // if (this.exchange.exchangeCode && this.exchange.exchangeName) {
-    //   this.app.saveExchange(this.exchange).subscribe(
-    //     res => {
-    //       if (res) {
-    //         console.log(res);
-    //         this.router.navigate(['training']);
-    //       }
-    //     },
-    //     error => {
-    //       console.log('error:', error);
-    //     }
-    //   );
-    // }
+    if (this.exchange.stockExchange) {
+      this.app.saveStockExchange(this.exchange).subscribe(
+        res => {
+          if (res) {
+            console.log(res);
+            this.router.navigate(['admin']);
+          }
+        },
+        error => {
+          console.log('error:', error);
+        }
+      );
+    }
   }
 
 }

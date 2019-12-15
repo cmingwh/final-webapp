@@ -18,7 +18,9 @@ export interface IpoElement {
   styleUrls: ['./edit-ipo.component.css']
 })
 export class EditIpoComponent implements OnInit {
-  ipo = {companyCode: '', stockExchange: '', price: '', openDate: '', remark: ''};
+  ipo; // = {companyCode: '', stockExchange: '', price: '', openDate: '', remark: ''};
+  companies;
+  stockExchanges;
 
   constructor(
     public dialogRef: MatDialogRef<EditIpoComponent>,
@@ -34,23 +36,53 @@ export class EditIpoComponent implements OnInit {
     if (!this.auth.isLogin()) {
       this.dialogRef.close();
       this.router.navigate(['login']);
+    } else {
+      this.ipo = this.data;
     }
+    this.app.getAllCompany().subscribe(
+      res => {
+        if (res) {
+          if (res.error || res.message) {
+            console.log(res);
+          } else {
+            this.companies = res;
+          }
+        }
+      },
+      error => {
+        console.log('error:', error);
+      }
+    );
+    this.app.getAllStockExchange().subscribe(
+      res => {
+        if (res) {
+          if (res.error || res.message) {
+            console.log(res);
+          } else {
+            this.stockExchanges = res;
+          }
+        }
+      },
+      error => {
+        console.log('error:', error);
+      }
+    );
   }
 
   saveIpo() {
-    // if (this.ipo.companyCode && this.ipo.ipoName) {
-    //   this.app.saveIpo(this.ipo).subscribe(
-    //     res => {
-    //       if (res) {
-    //         console.log(res);
-    //         this.router.navigate(['training']);
-    //       }
-    //     },
-    //     error => {
-    //       console.log('error:', error);
-    //     }
-    //   );
-    // }
+    if (this.ipo.companyCode && this.ipo.stockExchange && this.ipo.price && this.ipo.openDate) {
+      this.app.saveIpo(this.ipo).subscribe(
+        res => {
+          if (res) {
+            console.log(res);
+            this.router.navigate(['admin']);
+          }
+        },
+        error => {
+          console.log('error:', error);
+        }
+      );
+    }
   }
 
 }

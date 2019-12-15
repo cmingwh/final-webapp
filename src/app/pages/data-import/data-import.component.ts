@@ -9,13 +9,15 @@ import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 export class DataImportComponent implements OnInit {
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
 
-  result = {}; // { companyName: '', stockExchange: '', total: null };
+  result = []; // { companyName: '', stockExchange: '', total: null };
   uploader: FileUploader;
   isDropOver: boolean;
+  companyCode;
+  stockExchange;
 
   ngOnInit(): void {
     // const headers = [{name: 'Accept', value: 'application/json'}];
-    this.uploader = new FileUploader({ url: '/resource/files', autoUpload: true }); // , headers: headers});
+    this.uploader = new FileUploader({ url: '/excel/excel/', autoUpload: true }); // , headers: headers});
     // this.uploader.onCompleteAll = () => {
     //   alert('File uploaded');
     // }
@@ -25,6 +27,10 @@ export class DataImportComponent implements OnInit {
 
   onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
     this.result = JSON.parse(response); //success server response
+    if(this.result.length > 0){
+      this.companyCode = this.result[0].companyCode;
+      this.stockExchange = this.result[0].stockExchange;
+    }
   }
 
   onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
@@ -41,6 +47,6 @@ export class DataImportComponent implements OnInit {
   }
 
   return() {
-    this.result = null;
+    this.result = [];
   }
 }

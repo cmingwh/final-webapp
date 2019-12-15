@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 export interface CompanyElement {
   companyCode: number;
   companyName: string;
+  sectorId: number;
   ceo: number;
   directors: string;
   turnover: string;
@@ -19,8 +20,8 @@ export interface CompanyElement {
   styleUrls: ['./edit-company.component.css']
 })
 export class EditCompanyComponent implements OnInit {
-  company = {companyCode: '', companyName: '', ceo: '', directors: '', turnover: '', introduction: ''};
-
+  company;
+  sectors;
   constructor(
     public dialogRef: MatDialogRef<EditCompanyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CompanyElement,
@@ -35,7 +36,23 @@ export class EditCompanyComponent implements OnInit {
     if (!this.auth.isLogin()) {
       this.dialogRef.close();
       this.router.navigate(['login']);
+    } else {
+      this.company = this.data;
     }
+    this.app.getAllSector().subscribe(
+      res => {
+        if (res) {
+          if (res.error || res.message) {
+            console.log(res);
+          } else {
+            this.sectors = res;
+          }
+        }
+      },
+      error => {
+        console.log('error:', error);
+      }
+    );
   }
 
   saveCompany() {
@@ -44,7 +61,7 @@ export class EditCompanyComponent implements OnInit {
         res => {
           if (res) {
             console.log(res);
-            this.router.navigate(['training']);
+            this.router.navigate(['admin']);
           }
         },
         error => {

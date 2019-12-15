@@ -1,24 +1,39 @@
 <form class="form-container">
     <h1 mat-dialog-title>Compare Company</h1>
     <mat-form-field>
-        <mat-select placeholder="Select Company" name="companyCode" [(ngModel)]="company.companyCode">
-            <mat-option value="BSE">Company 1</mat-option>
-            <mat-option value="CSE">Company 2</mat-option>
-            <mat-option value="DSE">Company3</mat-option>
+        <mat-select placeholder="Select Sector" name="sectorId" [(ngModel)]="company.sectorId">
+            <mat-option *ngFor="let sector of sectors" [value]="sector.id">
+                {{sector.sectorName}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field>
-        <mat-select placeholder="Select Sector" name="sector" [(ngModel)]="company.sector">
-            <mat-option value="BSE">sector1</mat-option>
-            <mat-option value="CSE">sector2</mat-option>
-            <mat-option value="DSE">sector3</mat-option>
+    <!-- <mat-form-field>
+        <mat-select placeholder="Select Company" name="companyCode" [(ngModel)]="ipo.companyCode">
+            <mat-option *ngFor="let company of companies" [value]="company.companyCode">
+                {{company.companyCode}}
+            </mat-option>
         </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Select Stock Exchange" name="stockExchange" [(ngModel)]="company.stockExchange">
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field>
         <input matInput placeholder="Company Name" name="companyName" [(ngModel)]="company.companyName">
+    </mat-form-field>
+    <div>
+        <button mat-raised-button color="primary" type="button" (click)="searchCompany()">Search</button>
+    </div>
+    <p>
+        <mat-list>
+            <mat-list-item *ngFor="let company of searchedCompanies">
+                <input type="checkbox" name="companiesCheckbox" [value]="company.companyCode" [(ngModel)]="company.checked"> 
+                    {{company.companyName}}
+            </mat-list-item>
+        </mat-list>
+    </p>
+    <mat-form-field>
+        <mat-select placeholder="Select Stock Exchange" name="stockExchange" [(ngModel)]="company.stockExchange">
+            <mat-option *ngFor="let stockExchange of stockExchanges" [value]="stockExchange.stockExchange">
+                {{stockExchange.stockExchange}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
     <app-calendar #selCalendar></app-calendar>
     <p>

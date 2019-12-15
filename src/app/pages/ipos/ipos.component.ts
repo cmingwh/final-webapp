@@ -25,21 +25,21 @@ export class IposComponent implements OnInit {
   constructor(public dialog: MatDialog, private app: AppService) { }
 
   ngOnInit() {
-    // this.app.searchExchange(Exchange).subscribe(
-      //   res => {
-      //     if (res) {
-      //       if (res.error || res.message) {
-      //         console.log(res);
-      //       } else {
-      //         this.Exchanges = res;
-      //         this.ExchangeTable.renderRows();
-      //       }
-      //     }
-      //   },
-      //   error => {
-      //     console.log('error:', error);
-      //   }
-      // );
+    this.app.getAllIpo().subscribe(
+      res => {
+        if (res) {
+          if (res.error || res.message) {
+            console.log(res);
+          } else {
+            this.ipos = res;
+            this.ipoTable.renderRows();
+          }
+        }
+      },
+      error => {
+        console.log('error:', error);
+      }
+    );
   }
 
   edit(element): void {
@@ -62,6 +62,11 @@ export class IposComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  add(): void {
+    const ipo = {companyCode: '', stockExchange: '', price: 0, openDate: '', action: ''};
+    this.edit(ipo);
   }
 
 }

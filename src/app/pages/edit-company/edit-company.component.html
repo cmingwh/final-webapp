@@ -7,6 +7,13 @@
                     [(ngModel)]="company.companyCode">
             </mat-form-field>
             <mat-form-field>
+                <mat-select placeholder="Select Sector" name="sectorId" [(ngModel)]="company.sectorId">
+                    <mat-option *ngFor="let sector of sectors" [value]="sector.id">
+                        {{sector.sectorName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
                 <input matInput placeholder="Company Name" name="companyName"
                     [(ngModel)]="company.companyName">
             </mat-form-field>

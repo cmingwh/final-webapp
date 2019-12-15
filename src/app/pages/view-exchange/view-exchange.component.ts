@@ -29,7 +29,7 @@ export class ViewExchangeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.exchange = { stockExchange: '', brief: '', contactAddress: '', remark: '' };
+    this.exchange = this.data; //{ stockExchange: '', brief: '', contactAddress: '', remark: '' };
   }
 
 }
