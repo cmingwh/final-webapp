@@ -13,7 +13,6 @@ const routes: Routes = [
   // { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   // { path: 'mentor', component: MentorTrainingsComponent, canActivate: [AuthGuard] },
-  // { path: 'search', component: SearchComponent },
   // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
